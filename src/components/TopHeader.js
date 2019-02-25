@@ -70,10 +70,10 @@ class TopHeader extends React.Component
         else {
             return <div className="clearfix page-heading-container" style={{marginTop:"2.5vw"}}>
         <div className="clearfix page-heading-container" style={{marginTop:"2.5vw"}}>
-            <div className="float-left">
+            <div className="tmdb-img-float">
                 <img src="/icons/moviedb.svg" style={{width:"50%"}} />
             </div>
-            <div className="float-right">
+            <div className="header-float">
                 &nbsp;&nbsp;&nbsp;
                 <div style={{ display: "inline-block", verticalAlign: "middle", position: "relative" }}>
                     <img src="/icons/search.svg" className="search-bar-icon" />

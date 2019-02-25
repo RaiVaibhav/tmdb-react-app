@@ -164,3 +164,22 @@ vertical-align: middle;
 {
     margin-top:15px;
 }
+.header-float{
+    float: right;
+}
+    .tmdb-img-float{
+        float: left;
+    }
+@media only screen and (max-width: 767px) {
+    .header-float{
+        padding-top: 2vw;
+        float: none;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .tmdb-img-float{
+        float: none;
+    }
+  }
+
