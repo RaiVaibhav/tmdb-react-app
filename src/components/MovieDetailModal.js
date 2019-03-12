@@ -55,57 +55,59 @@ class MovieDetailModal extends React.Component
                     </div>
                 </div>
                 {this.state.movieDetail && !this.state.searching?<div className="row clearfix">
-                    <div className="col-md-4 col-sm-4 col-lg-4 float-left">
-                        <img src={"https://image.tmdb.org/t/p/w300/"+this.state.movieDetail.poster_path} />
+                    <div className="col-md-6 col-sm-6 col-lg-4 float-left">
+                        <img style={{width:"100%"}} src={"https://image.tmdb.org/t/p/w300"+this.state.movieDetail.poster_path} />
                     </div>
-                    <div className="col-md-8 col-sm-8 col-lg-8 float-right" style={{textAlign: "left"}}>
-                        <div className="col-md-12 col-sm-12 col-lg-12">
-                            <h3 style={{float:"left"}}>{this.state.movieDetail.title}</h3>
-                        </div>
-                        <div className="col-md-12 col-sm-12 col-lg-12" >
-                            <h4 style={{color:"green", float:"left"}}>{this.state.movieDetail.tagline}</h4>
-                        </div>
-                        <div className="col-md-12 col-sm-12 col-lg-12">
-                            {this.state.movieVideos.length?<iframe type="text/html" style={{height:"300px", width:"100%"}}
-                                src={"https://www.youtube.com/embed/"+this.state.movieVideos[0].key}
-                            frameBorder="0"/> :null}
-                            {this.state.movieDetail.overview?<p style={{float:"left",textAlign: "left"}}>{this.state.movieDetail.overview}</p>:null}
-                            <div className="clearfix">
-                                <div style={{width:"300px", height:"50px"}} className="float-left">
-                                    <h2>Release Date:</h2>
-                                    <h4 style={{color:"green"}}>{this.state.movieDetail.release_date}</h4>
-                                </div>
-                                <div className="float-right" style={{width:"250px", height:"50px"}}>
-                                    <h2>Rating:</h2>
-                                    <h4 style={{color:"green"}}>{this.state.movieDetail.vote_average +"/10"}</h4>
-                                </div>
+                    <div className="col-md-6 col-sm-6 col-lg-8 float-right" style={{textAlign: "left"}}>
+                        <div className="row">
+                            <div className="col-md-12 col-sm-12 col-lg-12">
+                                <h3 style={{float:"left"}}>{this.state.movieDetail.title}</h3>
                             </div>
-                            <div className="clearfix" style={{marginTop:"10%"}}>
-                                <div style={{width:"300px", height:"100%"}} className="float-left">
-                                    <h2>Budjet:</h2>
-                                    <h4 style={{color:"green"}}>{"$"+this.state.movieDetail.budget}</h4>
-                                </div>
-                                <div className="float-right" style={{width:"250px", height:"50px"}}>
-                                    <h2>Revenue:</h2>
-                                    <h4 style={{color:"green"}}>{"$"+this.state.movieDetail.revenue}</h4>
-                                </div>
+                            <div className="col-md-12 col-sm-12 col-lg-12" >
+                                <h4 style={{color:"green", float:"left"}}>{this.state.movieDetail.tagline}</h4>
                             </div>
-                            <div className="clearfix" style={{marginTop:"10%"}}>
-                                <div style={{width:"300px", height:"100%"}} className="float-left">
-                                <h2>Genre:</h2>
+                            <div className="col-md-12 col-sm-12 col-lg-12">
+                                {this.state.movieVideos.length?<iframe type="text/html" style={{height:"300px", width:"100%"}}
+                                    src={"https://www.youtube.com/embed/"+this.state.movieVideos[0].key}
+                                frameBorder="0"/> :null}
+                                {this.state.movieDetail.overview?<p style={{textAlign: "left"}}>{this.state.movieDetail.overview}</p>:null}
+                                <div className="row">
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                        <h3>Release Date:</h3>
+                                        <h4 style={{color:"green"}}>{this.state.movieDetail.release_date}</h4>
+                                    </div>
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                        <h3>Rating:</h3>
+                                        <h4 style={{color:"green"}}>{this.state.movieDetail.vote_average +"/10"}</h4>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                        <h3>Budjet:</h3>
+                                        <h4 style={{color:"green"}}>{"$"+this.state.movieDetail.budget}</h4>
+                                    </div>
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                        <h3>Revenue:</h3>
+                                        <h4 style={{color:"green"}}>{"$"+this.state.movieDetail.revenue}</h4>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                    <h3>Genre:</h3>
+                                        {
+                                            this.state.movieDetail.genres.map((genre, index) => {
+                                                return <h4 key={index} style={{color:"green"}}>{genre.name}</h4>
+                                            })
+                                        }
+                                    </div>
+                                    <div className="col-md-6 col-sm-12 col-lg-6">
+                                    <h3>Production:</h3>
                                     {
-                                        this.state.movieDetail.genres.map((genre, index) => {
-                                            return <h4 key={index} style={{color:"green"}}>{genre.name}</h4>
+                                        this.state.movieDetail.production_companies.map((company, index) => {
+                                            return <h4 key={index} style={{color:"green"}}>{company.name}</h4>
                                         })
                                     }
-                                </div>
-                                <div className="float-right" style={{width:"250px", height:"100%"}}>
-                                <h2>Production:</h2>
-                                {
-                                    this.state.movieDetail.production_companies.map((company, index) => {
-                                        return <h4 key={index} style={{color:"green"}}>{company.name}</h4>
-                                    })
-                                }
+                                    </div>
                                 </div>
                             </div>
                         </div>

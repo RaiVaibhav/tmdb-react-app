@@ -13,9 +13,9 @@
       color: #8690a4;
       border-radius: 5px;
       box-sizing: content-box;
-      width:320px;
+      width:330px;
       box-sizing: border-box;
-      min-width: 350px;
+      min-width: 330px;
       transition:all 0.3s ease-in;
 }
 .search-bar:focus,.search-bar:focus
